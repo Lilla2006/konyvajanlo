@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="konyvajanlo.css">
+  <script src="konyvajanlo.js" defer></script>
+  <title>Könyvajánló</title>
+</head>
+<body>
+  <header>
+    <h1>Online könyvespolc</h1>
+    <nav>
+      <button class="nav-btn active" data-page="view-books">Könyvlista</button>
+      <button class="nav-btn" data-page="view-detail">Részletes nézet</button>
+      <button class="nav-btn" data-page="view-review">Értékelés írása</button>
+      <button class="nav-btn" data-page="view-recommendations">Saját ajánlások</button>
+      <button class="nav-btn" data-page="view-account">Bejelentkezés / Regisztráció</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="view-books" class="page active">
+      <h2>Könyvlista</h2>
+      <p class="muted">Kattints egy könyvre, hogy lásd a részleteket.</p>
+      <div id="book-list" class="book-list">
+      </div>
+    </section>
+
+    <section id="view-detail" class="page">
+      <h2>Részletes nézet</h2>
+      <div id="book-detail" class="detail-wrapper">
+        <p class="muted">Válassz egy könyvet a könyvlistából.</p>
+      </div>
+    </section>
+
+    <section id="view-review" class="page">
+      <h2>Értékelés írása</h2>
+      <form id="review-form">
+        <div class="form-row">
+          <label for="review-book">Könyv</label>
+          <select id="review-book" required></select>
+        </div>
+        <div class="form-row">
+          <label for="review-rating">Értékelés (1–5)</label>
+          <select id="review-rating" required>
+            <option value="">Válassz...</option>
+            <option value="1">1 - Gyenge</option>
+            <option value="2">2 - Elmegy</option>
+            <option value="3">3 - Jó</option>
+            <option value="4">4 - Nagyon jó</option>
+            <option value="5">5 - Zseniális</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label for="review-text">Véleményed</label>
+          <textarea id="review-text" placeholder="Írd le a gondolataid..."></textarea>
+        </div>
+        <button type="submit" class="btn-primary">Értékelés elküldése</button>
+        <div id="review-msg" class="success"></div>
+      </form>
+    </section>
+
+    <section id="view-recommendations" class="page">
+      <h2>Saját ajánlások</h2>
+      <p class="muted">Példaként néhány ajánlott könyv a listából (4-es vagy 5-ös értékeléssel).</p>
+      <div id="rec-list" class="book-list"></div>
+    </section>
+
+    <section id="view-account" class="page">
+      <h2>Bejelentkezés / Regisztráció</h2>
+      <div class="auth-container">
+        <div class="card">
+          <div class="tabs">
+            <button id="tab-login" class="active">Bejelentkezés</button>
+            <button id="tab-register">Regisztráció</button>
+          </div>
+
+          <form id="login" class="active">
+            <input type="email" id="login-email" placeholder="Email" required>
+            <div id="login-email-error" class="error"></div>
+
+            <input type="password" id="login-pass" placeholder="Jelszó" required>
+            <div id="login-pass-error" class="error"></div>
+
+            <button type="submit" class="submit">Bejelentkezés</button>
+            <div id="login-msg" class="success"></div>
+          </form>
+
+          <form id="register">
+            <input type="text" id="reg-username" placeholder="Felhasználónév">
+            <div class="error"></div>
+
+            <input type="email" id="reg-email" placeholder="Email" required>
+            <div id="reg-email-error" class="error"></div>
+
+            <input type="password" id="reg-pass1" placeholder="Jelszó" required>
+            <div id="reg-pass1-error" class="error"></div>
+
+            <input type="password" id="reg-pass2" placeholder="Jelszó újra" required>
+            <div id="reg-pass2-error" class="error"></div>
+
+            <button type="submit" class="submit">Regisztráció</button>
+            <div id="reg-msg" class="success"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
